@@ -1,0 +1,35 @@
+# BS2_GetCardConfig
+
+Retrieves smart card settings from the device.
+
+**IMPORTANT**
+
+You are not able to retrieve a key value due to security reason. 
+
+## Declaration
+
+```cpp
+#include "BS_API.h"
+
+int BS2_GetCardConfig(void* context, uint32_t deviceId, BS2CardConfig* config);
+```
+
+:::info
+
+ [See BS2CardConfig Structure](configuration api#BS2CardConfig) 
+
+:::
+
+## Parameter
+
+- \[In\] `context` : Context
+
+- \[In\] `deviceId` : Device ID
+
+- \[Out\] `config` : Smart card configurations pointer
+
+## Return Value
+
+If successfully done, `BS_SDK_SUCCESS` will be returned.
+
+If there is an error, the corresponding error code will be returned.

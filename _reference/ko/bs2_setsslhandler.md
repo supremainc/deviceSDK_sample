@@ -1,0 +1,92 @@
+# BS2_SetSSLHandler
+
+SSL통신을 설정합니다
+
+## 함수
+
+```cpp
+#include "BS_API.h"
+
+int BS2_SetSSLHandler(void* context, PreferMethod ptrPreferMethod, GetRootCaFilePath ptrGetRootCaFilePath, GetServerCaFilePath ptrGetServerCaFilePath, GetServerPrivateKeyFilePath ptrGetServerPrivateKeyFilePath, GetPassword ptrGetPassword, OnErrorOccured ptrOnErrorOccured);
+```
+
+## 파라미터
+
+- \[In\] `context` : Context
+
+- \[In\] `ptrPreferMethod` : SSL MethodMask 얻고자 할 때 호출되는 콜백 함수
+
+- \[In\] `ptrGetRootCaFilePath` : Root CA 파일 경로를 얻고자 할 때 호출되는 콜백 함수
+
+- \[In\] `ptrGetServerCaFilePath` : 서버 CA 파일 경로를 얻고자 할 때 호출되는 콜백 함수
+
+- \[In\] `ptrGetServerPrivateKeyFilePath` : 서버 PrivateKey 파일 경로을 얻고자 할 때 호출되는 콜백 함수
+
+- \[In\] `ptrGetPassword` : Password을 얻고자 할 때 호출되는 콜백 함수
+
+- \[In\] `ptrOnErrorOccured` : 에러가 발생했을 때 호출되는 콜백 함수
+
+## 반환값
+
+성공적으로 수행될 경우 `BS_SDK_SUCCESS`를 반환하고, 에러가 발생할 경우 상응하는 에러 코드를 반환합니다.
+
+## 샘플코드
+
+C++
+
+```cpp
+int BS2Context::setSSLHandler()
+{
+    int sdkResult = BS2_SetSSLHandler(context_, BS2Context::OnPreferMethod, BS2Context::OnGetRootCaFilePath, BS2Context::OnGetServerCaFilePath, BS2Context::OnGetServerPrivateKeyFilePath, BS2Context::OnGetPassword, BS2Context::onErrorOccured);
+    if (BS_SDK_SUCCESS != sdkResult)
+    {
+        TRACE("BS2_SetSSLHandler call failed: %d", sdkResult);
+        return sdkResult;
+    }
+
+    sdkResult = BS2_SetDeviceSSLEventListener(context_, BS2Context::OnSendRootCA);
+    if (BS_SDK_SUCCESS != sdkResult)
+    {
+        TRACE("BS2_SetDeviceSSLEventListener call failed: %d", sdkResult);
+    }
+
+    return sdkResult;
+}
+```
+
+C#
+
+```cpp
+if (Util.IsYes())
+{
+    private API.PreferMethod cbPreferMethod = null;
+    private API.GetRootCaFilePath cbGetRootCaFilePath = null;
+    private API.GetServerCaFilePath cbGetServerCaFilePath = null;
+    private API.GetServerPrivateKeyFilePath cbGetServerPrivateKeyFilePath = null;
+    private API.GetPassword cbGetPassword = null;
+    private API.OnErrorOccured cbOnErrorOccured = null;
+
+    cbPreferMethod = new API.PreferMethod(PreferMethodHandle);
+    cbGetRootCaFilePath = new API.GetRootCaFilePath(GetRootCaFilePathHandle);
+    cbGetServerCaFilePath = new API.GetServerCaFilePath(GetServerCaFilePathHandle);
+    cbGetServerPrivateKeyFilePath = new API.GetServerPrivateKeyFilePath(GetServerPrivateKeyFilePathHandle);
+    cbGetPassword = new API.GetPassword(GetPasswordHandle);
+    cbOnErrorOccured = new API.OnErrorOccured(OnErrorOccuredHandle);
+    //ServicePointManager.SecurityProtocol = (SecurityProtocolType)SecurityProtocolType.Ssl3;
+
+    BS2ErrorCode sdkResult = (BS2ErrorCode)API.BS2_SetSSLHandler(sdkContext, cbPreferMethod, cbGetRootCaFilePath, cbGetServerCaFilePath, cbGetServerPrivateKeyFilePath, cbGetPassword, null);
+    if (sdkResult != BS2ErrorCode.BS_SDK_SUCCESS)
+    {
+        Console.WriteLine("BS2_SetSSLHandler failed with : {0}", sdkResult);
+        API.BS2_ReleaseContext(sdkContext);
+        sdkContext = IntPtr.Zero;
+        return;
+    }
+    else
+    {
+        //bSsl = true;
+    }
+
+}
+```
+

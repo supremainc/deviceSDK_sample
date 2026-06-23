@@ -1,0 +1,73 @@
+# BS2_GetAvailableOsdpStandardDevice
+
+<Badge only>+ v2.9.1</Badge> `CoreStation40` Get additional connectable OSDP device information by specifying the master device identifier.
+
+## Declaration
+
+```cpp
+#include "BS_API.h"
+
+int BS2_GetAvailableOsdpStandardDevice(void* context, uint32_t deviceId, BS2OsdpStandardDeviceAvailable* osdpDevices);
+```
+
+:::info
+
+ [See BS2OsdpStandardDeviceAvailable Structure](slave_control_api#BS2OsdpStandardDeviceAvailable) 
+
+:::
+
+## Parameter
+
+- \[In\] `context` : Context
+
+- \[In\] `deviceId` : Master device identifier
+
+- \[Out\] `osdpDevices` : Pointer to store OSDP device information
+
+## Return Value
+
+If successfully done, `BS_SDK_SUCCESS` will be returned. If there is an error, the corresponding error code will be returned.
+
+## See Also
+
+[BS2_AddOsdpStandardDevice](bs2_addosdpstandarddevice)
+
+[BS2_GetOsdpStandardDevice](bs2_getosdpstandarddevice)
+
+[BS2_GetAvailableOsdpStandardDevice](bs2_getavailableosdpstandarddevice)
+
+[BS2_UpdateOsdpStandardDevice](bs2_updateosdpstandarddevice)
+
+[BS2_RemoveOsdpStandardDevice](bs2_removeosdpstandarddevice)
+
+[BS2_GetOsdpStandardDeviceCapability](bs2_getosdpstandarddevicecapability)
+
+[BS2_SetOsdpStandardDeviceSecurityKey](bs2_setosdpstandarddevicesecuritykey)
+
+## Sample Code(C++)
+
+```cpp
+BS2OsdpStandardDeviceAvailable osdpDevice = { 0, };
+
+BS2_DEVICE_ID id = Utility::selectDeviceID(deviceList, false, false);
+int sdkResult = BS2_GetAvailableOsdpStandardDevice(context_, id, &osdpDevice);
+if (BS_SDK_SUCCESS != sdkResult)
+    printf("BS2_GetAvailableOsdpStandardDevice call failed: %d", sdkResult);
+
+return sdkResult;
+```
+
+## Sample Code (C#)
+
+```csharp
+BS2OsdpStandardDeviceAvailable osdpDevices;
+
+BS2ErrorCode result = (BS2ErrorCode)API.BS2_GetAvailableOsdpStandardDevice(sdkContext, deviceID, out osdpDevices);
+if (result != BS2ErrorCode.BS_SDK_SUCCESS)
+    Console.WriteLine("Got error({0}).", result);
+else
+    Console.WriteLine("Call success.");
+
+return result;
+```
+

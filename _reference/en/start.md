@@ -1,0 +1,11 @@
+# BioStar Device SDK
+
+![](/sdk_hero_en.png)
+
+BioStar Device SDK is a programming interface that allows other software products to communicate with and control Suprema readers. The SDK consists of a set of APIs, and can easily manage access control, time & attendance, and devices. Furthermore, it supports a wide range of programming languages such as C++ and C# with various operating systems including Windows and Linux.
+
+## Sample Codes and Download
+
+Please download the BioStar Device SDK package containing sample code from the Suprema Download Center.
+
+[Go to the Suprema Download Center](https://download.supremainc.com/download-center/pages/login.asp)

@@ -1,0 +1,23 @@
+# BS2_Initialize
+
+Initializes the context.  **NOTE**
+
+This should be called before calling the device control API. 
+
+## Declaration
+
+```cpp
+#include "BS_API.h"
+
+int BS2_Initialize(void* context);
+```
+
+## Parameter
+
+- \[In\] `context` : Context
+
+## Return Value
+
+If successfully done, `BS_SDK_SUCCESS` will be returned.
+
+If there is an error, the corresponding error code will be returned.

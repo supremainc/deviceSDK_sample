@@ -1,0 +1,17 @@
+# Debugging API
+
+애플리케이션 개발 시, SDK 내에서 발생하는 디버그 정보를 활용할 수 있습니다.
+
+실시간으로 디버그 정보를 받으려면 [BS2_SetDebugExCallback](bs2_setdebugexcallback) 함수를 통해 콜백 함수를 등록하십시오.
+
+- [BS2_SetDebugExCallback](bs2_setdebugexcallback): 실시간 디버그 정보를 받기위해 콜백 함수를 등록합니다.
+
+## 콜백 함수
+
+```cpp
+typedef void (*CBDebugExPrint)(uint32_t level, uint32_t module, const char* msg);
+```
+
+1. `CBDebugExPrint`
+
+   디버그 정보가 발생했을 때 호출되는 콜백 함수입니다.

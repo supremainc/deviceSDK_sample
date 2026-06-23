@@ -1,0 +1,35 @@
+# BS2_GetCardConfigEx
+
+Retrieves iClass SEOS card settings from the device.
+
+**IMPORTANT**
+
+You are not able to retrieve a key value due to security reason. 
+
+## Declaration
+
+```cpp
+#include "BS_API.h"
+
+int BS2_GetCardConfigEx(void* context, uint32_t deviceId, BS2CardConfigEx* config);
+```
+
+:::info
+
+ [See BS2CardConfigEx Structure](configuration api#BS2CardConfigEx) 
+
+:::
+
+## Parameter
+
+- \[In\] `context` : Context
+
+- \[In\] `deviceId` : Device ID
+
+- \[Out\] `config` : Smart Card configurations pointer
+
+## Return Value
+
+If successfully done, `BS_SDK_SUCCESS` will be returned.
+
+If there is an error, the corresponding error code will be returned.

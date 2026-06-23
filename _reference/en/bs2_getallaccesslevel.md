@@ -1,0 +1,47 @@
+# BS2_GetAllAccessLevel
+
+Retrieves all access levels.
+
+## Declaration
+
+```cpp
+#include "BS_API.h"
+
+int BS2_GetAllAccessLevel(void* context, uint32_t deviceId, BS2AccessLevel** accessLevelObj, uint32_t* numAccessLevel);
+```
+
+:::info
+
+ [See BS2AccessLevel Structure](access control api#BS2AccessLevel) 
+
+:::
+
+## Parameter
+
+- \[In\] `context` : Context
+
+- \[In\] `deviceId` : Device ID
+
+- \[Out\] `accessLevelObj` : Access level list pointer
+
+- \[Out\] `numAccessLevel` : Number of access levels
+
+  **NOTE**
+
+The accessLevelObj variable needs to return the memory to the system by the [BS2_ReleaseObject](bs2_releaseobject) function after being used.  
+
+## Return Value
+
+If successfully done, `BS_SDK_SUCCESS` will be returned.
+
+If there is an error, the corresponding error code will be returned.
+
+## See Also
+
+[BS2_GetAccessLevel](bs2_getaccesslevel)
+
+[BS2_SetAccessLevel](bs2_setaccesslevel)
+
+[BS2_RemoveAccessLevel](bs2_removeaccesslevel)
+
+[BS2_RemoveAllAccessLevel](bs2_removeallaccesslevel)

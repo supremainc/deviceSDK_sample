@@ -1,0 +1,27 @@
+# BS2_SetKeepAliveTimeout
+
+Sets the keep-alive timeout.
+
+## Declaration
+
+```cpp
+#include "BS_API.h"
+
+int BS2_SetKeepAliveTimeout(void* context, long ms);
+```
+
+## Parameter
+
+- \[In\] `context` : Context
+
+- \[In\] `ms` : Keep-alive timeout (ms)
+
+  **NOTE**
+
+The default timeout is 30,000(30sec)  
+
+## Return Value
+
+If successfully done, `BS_SDK_SUCCESS` will be returned.
+
+If there is an error, the corresponding error code will be returned.
