@@ -23,8 +23,12 @@ jobs:
 
       - name: Install Doxygen
         run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y doxygen
+          DOXY_VER=1.17.0
+          DOXY_TAG="Release_$(echo $DOXY_VER | tr '.' '_')"
+          wget -q "https://github.com/doxygen/doxygen/releases/download/${DOXY_TAG}/doxygen-${DOXY_VER}.linux.bin.tar.gz" -O doxygen.tar.gz
+          tar xf doxygen.tar.gz
+          sudo install -m 755 "doxygen-${DOXY_VER}/bin/doxygen" /usr/local/bin/doxygen
+          doxygen --version
 
       - name: Build docs
         run: node build_docs.js

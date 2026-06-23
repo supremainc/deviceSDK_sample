@@ -104,15 +104,14 @@ DoxygenAwesomeTabs.init()
   // 사이드바 항목 클릭 시 하위 카테고리 자동 확장
   document.addEventListener('DOMContentLoaded', function() {
     // Part 1: 이전 페이지에서 확장 요청이 저장된 경우, 이동 후 해당 항목을 확장
-    var pendingClass = sessionStorage.getItem('navExpand');
-    if (pendingClass) {
+    var pendingHref = sessionStorage.getItem('navExpand');
+    if (pendingHref) {
       sessionStorage.removeItem('navExpand');
       var done = false;
-      var escaped = CSS.escape ? CSS.escape(pendingClass) : pendingClass.replace(/\./g, '\\.').replace(/\//g, '\\/');
 
       function tryExpand() {
         if (done) return;
-        var link = document.querySelector('#nav-tree-contents .label a.' + escaped);
+        var link = document.querySelector('#nav-tree-contents .label a[href="' + pendingHref + '"]');
         if (!link) return;
         var item = link.closest('div.item');
         if (!item) return;
@@ -120,7 +119,7 @@ DoxygenAwesomeTabs.init()
           var arrow = item.querySelector('a[href="javascript:void(0)"]');
           if (arrow) { arrow.click(); done = true; }
         } else {
-          done = true; // 이미 열려있음
+          done = true;
         }
       }
 
@@ -144,8 +143,7 @@ DoxygenAwesomeTabs.init()
       var item = labelLink.closest('div.item');
       if (!item) return;
       if (item.querySelector('span.arrowhead.closed')) {
-        // labelLink의 class 속성이 navtree 내 고유 식별자 역할 (예: "topics.html")
-        sessionStorage.setItem('navExpand', labelLink.className.trim());
+        sessionStorage.setItem('navExpand', labelLink.getAttribute('href'));
       }
     });
   });
