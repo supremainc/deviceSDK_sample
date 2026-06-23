@@ -1,6 +1,4 @@
-# Quick Guide
-
- This page explains how to develop an application using the BioStar SDK.
+This page explains how to develop an application using the BioStar SDK.
 
 The content below delineates the instructions of the interface that is used frequently by the BioStar application and it has been written based on C++. Refer to the Example folder of the SDK package for examples in other languages.
 

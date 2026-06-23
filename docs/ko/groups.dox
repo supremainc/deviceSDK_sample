@@ -1,0 +1,202 @@
+/**
+ * @defgroup group_sdk_api SDK API
+ * @brief APIs that initialize device management information and are used for
+ *        dynamic memory control and PIN code generation.
+ *
+ * @include{doc} sdk_api.md
+ */
+
+/**
+ * @defgroup group_debugging_api Debugging API
+ * @brief APIs for checking debugging messages that occur within the SDK.
+ *
+ * @include{doc} debugging_api.md
+ */
+
+/**
+ * @defgroup group_communication_api Communication API
+ * @brief APIs for device search, network connection, and server configuration.
+ *
+ * @include{doc} communication_api.md
+ */
+
+/**
+ * @defgroup group_ssl_api SSL API
+ * @brief APIs for configuring SSL communication.
+ *
+ * @include{doc} ssl_api.md
+ */
+
+/**
+ * @defgroup group_device_api Device API
+ * @brief APIs for querying device information and controlling device operations.
+ *
+ * @include{doc} device_api.md
+ */
+
+/**
+ * @defgroup group_log_management Log Management API
+ * @brief APIs for retrieving, monitoring, and deleting device logs.
+ *
+ * @include{doc} log_management_api.md
+ */
+
+/**
+ * @defgroup group_user_management User Management API
+ * @brief APIs for enrolling, querying, and deleting users.
+ *
+ * @include{doc} user_management_api.md
+ */
+
+/**
+ * @defgroup group_configuration Configuration API
+ * @brief APIs for retrieving and storing device configuration settings.
+ *
+ * @include{doc} configuration_api.md
+ */
+
+/**
+ * @defgroup group_smartcard Smartcard API
+ * @brief APIs for scanning, writing, and erasing smart cards.
+ *
+ * @include{doc} smartcard_api.md
+ */
+
+/**
+ * @defgroup group_qrcode QR Code API
+ * @brief APIs for writing QR code data to the card structure.
+ *
+ * @include{doc} qr_code_api.md
+ */
+
+/**
+ * @defgroup group_fingerprint Fingerprint API
+ * @brief APIs for scanning and verifying fingerprints.
+ *
+ * @include{doc} fingerprint_api.md
+ */
+
+/**
+ * @defgroup group_face Face API
+ * @brief APIs for scanning and verifying face templates (IR Face based).
+ *
+ * @include{doc} face_api.md
+ */
+
+/**
+ * @defgroup group_faceex FaceEx API
+ * @brief APIs for Visual Face based scanning and template extraction.
+ *
+ * @include{doc} face_api.md
+ */
+
+/**
+ * @defgroup group_access_control Access Control API
+ * @brief APIs for managing access groups, levels, schedules, and holidays.
+ *
+ * @include{doc} access_control_api.md
+ */
+
+/**
+ * @defgroup group_blacklist Blacklist API
+ * @brief APIs for managing the card blacklist.
+ *
+ * @include{doc} blacklist_api.md
+ */
+
+/**
+ * @defgroup group_door_control Door Control API
+ * @brief APIs for configuring doors and controlling door lock/unlock operations.
+ *
+ * @include{doc} door_control_api.md
+ */
+
+/**
+ * @defgroup group_lift_control Lift Control API
+ * @brief APIs for configuring and controlling lift (elevator) access.
+ *
+ * @include{doc} lift_control_api.md
+ */
+
+/**
+ * @defgroup group_slave_control Slave Control API
+ * @brief APIs for managing master/slave device relationships via RS-485.
+ *
+ * @include{doc} slave_control_api.md
+ */
+
+/**
+ * @defgroup group_wiegand Wiegand API
+ * @brief APIs for managing Wiegand card readers and input/output configuration.
+ *
+ * @include{doc} wiegand_api.md
+ */
+
+/**
+ * @defgroup group_server Server API
+ * @brief APIs for server matching and device control from the BioStar application.
+ *
+ * @include{doc} server_api.md
+ */
+
+/**
+ * @defgroup group_zone_control Zone Control API
+ * @brief APIs for configuring zones that control entry devices and door operations.
+ *
+ * @include{doc} zone_control_api.md
+ */
+
+/**
+ * @defgroup group_apb_zone Anti Passback Zone
+ * @ingroup group_zone_control
+ * @brief APIs for configuring Anti Passback zones to prevent card sharing.
+ */
+
+/**
+ * @defgroup group_timed_apb_zone Timed Anti Passback Zone
+ * @ingroup group_zone_control
+ * @brief APIs for configuring Timed Anti Passback zones.
+ */
+
+/**
+ * @defgroup group_fire_alarm_zone Fire Alarm Zone
+ * @ingroup group_zone_control
+ * @brief APIs for configuring Fire Alarm zones.
+ */
+
+/**
+ * @defgroup group_scheduled_lock_zone Scheduled Lock/Unlock Zone
+ * @ingroup group_zone_control
+ * @brief APIs for configuring Scheduled Lock/Unlock zones.
+ */
+
+/**
+ * @defgroup group_intrusion_alarm_zone Intrusion Alarm Zone
+ * @ingroup group_zone_control
+ * @brief APIs for configuring Intrusion Alarm zones.
+ */
+
+/**
+ * @defgroup group_interlock_zone Interlock Zone
+ * @ingroup group_zone_control
+ * @brief APIs for configuring Interlock zones (CoreStation dual door).
+ */
+
+/**
+ * @defgroup group_ethernet_zone Ethernet Zone
+ * @ingroup group_zone_control
+ * @brief APIs for configuring Ethernet zones (device-to-device TCP protocol).
+ */
+
+/**
+ * @defgroup group_lift_lock_zone Lift Lock/Unlock Zone
+ * @ingroup group_zone_control
+ * @brief APIs for controlling elevator floor access based on schedules.
+ */
+
+/**
+ * @defgroup group_usb_export USB Exported Control API
+ * @brief APIs for managing USB exported device data.
+ *
+ * @include{doc} use_exported_control_api.md
+ */

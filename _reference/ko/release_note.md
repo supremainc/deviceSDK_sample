@@ -1,5 +1,3 @@
-# 릴리스 정보
-
 <list-group\>
 
 - [release_note_2912](/ko/release_note_2912)

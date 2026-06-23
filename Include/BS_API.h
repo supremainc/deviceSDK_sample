@@ -606,7 +606,7 @@ extern "C"
  * @param[in] level Debug level bitmask (e.g., DEBUG_LOG_ALL, DEBUG_LOG_ERROR).
  * @param[in] module Module bitmask to filter log output (e.g., DEBUG_MODULE_ALL).
  * @param[in] logPath Path to the directory where log files will be stored. Log files are named in the form YYYYMMDD.log.
- * @return BS_SDK_SUCCESS on success, error code on failure.
+ * \sdkreturn
  * @include{doc} bs2_setdebugfilelog.md
  */
 BS_API_EXPORT int BS_CALLING_CONVENTION BS2_SetDebugFileLog(uint32_t level, uint32_t module, const char* logPath);
@@ -618,7 +618,7 @@ BS_API_EXPORT int BS_CALLING_CONVENTION BS2_SetDebugFileLog(uint32_t level, uint
  * @param[in] module Module bitmask to filter log output (e.g., DEBUG_MODULE_ALL).
  * @param[in] logPath Path to the directory where log files will be stored. Log files are named in the form YYYYMMDD_x.log.
  * @param[in] fileMaxSizeMB Maximum size of each log file in megabytes. Set to 0 to disable file splitting.
- * @return BS_SDK_SUCCESS on success, error code on failure.
+ * sdkreturn
  * @include{doc} bs2_setdebugfilelogex.md
  */
 BS_API_EXPORT int BS_CALLING_CONVENTION BS2_SetDebugFileLogEx(uint32_t level, uint32_t module, const char* logPath, int fileMaxSizeMB);

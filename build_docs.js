@@ -26,10 +26,10 @@ function step(label) {
     console.log(`\n[${label}]`);
 }
 
-function generateReleaseNotes(lang, title) {
+function generateReleaseNotes(lang) {
     const refDir  = path.join(ROOT, '_reference', lang);
     const outFile = path.join(refDir, 'release_notes.md');
-    const parts   = [title + '\n'];
+    const parts   = [];
 
     for (const file of RELEASE_NOTE_FILES) {
         const filePath = path.join(refDir, file);
@@ -68,10 +68,10 @@ console.log('\nBioStar Device SDK - Documentation Builder');
 console.log('===========================================');
 
 step('1/4  Generating release_notes.md (English)');
-generateReleaseNotes('en', '# Release Notes');
+generateReleaseNotes('en');
 
 step('2/4  Generating release_notes.md (Korean)');
-generateReleaseNotes('ko', '# 릴리즈 노트');
+generateReleaseNotes('ko');
 
 step('3/4  Running Doxygen (English)');
 runDoxygen('biostar_device_sdk_en');  // Creates output/ via HTML_OUTPUT=output

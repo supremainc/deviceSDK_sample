@@ -1,5 +1,3 @@
-# Release Notes
-
 # Version 2.9.12 (v2.9.12.0)
 
 ## Date

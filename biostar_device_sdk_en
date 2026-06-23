@@ -293,7 +293,10 @@ TAB_SIZE               = 4
 # with the commands \{ and \} for these it is advised to use the version @{ and
 # @} or use a double escape (\\{ and \\})
 
-ALIASES                =
+# ALIASES                =
+ALIASES += sdkreturn="\~english @return If successfully done, `BS_SDK_SUCCESS` will be returned. If there is an error, the corresponding error code will be returned. \~korean @return 성공적으로 수행될 경우 `BS_SDK_SUCCESS`를 반환하고, 에러가 발생할 경우 상응하는 에러 코드를 반환합니다. \~"
+ALIASES += quickguide="\~english Quick Guide \~korean 퀵 가이드 \~"
+ALIASES += gettingStarted="\~english Getting Started \~korean 시작하기 \~"
 
 # Set the OPTIMIZE_OUTPUT_FOR_C tag to YES if your project consists of C sources
 # only. Doxygen will then generate output that is more tailored for C. For
@@ -1029,7 +1032,7 @@ WARN_LOGFILE           =
 # spaces. See also FILE_PATTERNS and EXTENSION_MAPPING
 # Note: If this tag is empty the current directory is searched.
 
-INPUT                  = Include docs _reference/en/start.md _reference/en/quick_guide.md _reference/en/release_notes.md
+INPUT                  = Include docs/en _reference/en/start.md
 
 # This tag can be used to specify the character encoding of the source files
 # that Doxygen parses. Internally Doxygen uses the UTF-8 encoding. Doxygen uses

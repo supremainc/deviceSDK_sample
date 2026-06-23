@@ -79,8 +79,8 @@ Include 경로의 SDK 코드 파일을 확인하세요. 각 코드 파일에 _re
 | 파일 | 역할 |
 | ------ | ------ |
 | `BS_API.h` | `\~english`/`\~korean`으로 @brief, @param, @return 이중 언어 작성 |
-| `docs/groups.dox` | 영어 `@defgroup` brief 정의 |
-| `docs/groups_ko.dox` | 한국어 `@defgroup` brief 정의 (별도 작성 필요) |
+| `docs/en/groups.dox` | 영어 `@defgroup` brief 정의 |
+| `docs/ko/groups.dox` | 한국어 `@defgroup` brief 정의 |
 | `biostar_device_sdk_en` | 영어 Doxyfile: `EXAMPLE_PATH = _reference/en` |
 | `biostar_device_sdk_ko` | 한국어 Doxyfile: `EXAMPLE_PATH = _reference/ko`, `OUTPUT_LANGUAGE = Korean` |
 
@@ -629,7 +629,7 @@ HTML_OUTPUT      = ko
 
 ### 언어 전환 버튼 (JavaScript)
 
-`docs/lang_switch.js` 파일을 만들고 두 Doxyfile에 모두 등록:
+`assets/lang_switch.js` 파일을 만들고 두 Doxyfile에 모두 등록:
 
 ```javascript
 (function () {

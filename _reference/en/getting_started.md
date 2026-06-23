@@ -1,40 +1,32 @@
-# Getting Started
-
 ## SDK Components
 
 BioStar 2 Device SDK package is made of the following folders and files.
 
-  ------ -------------- -------- ------ ----- --------------------
+| SDL | Document | | | | |
+| --- | --- | ---| --- | --- | --- |
+| ^ | Include | | | | |
+| ^ | Lib | Linux | lib | x86 | BS_SDK_V2.so |
+| ^ | ^ | ^ | ^ | x64 | BS_SDK_V2.so |
+| ^ | ^ | Windows | lib | x86 | BS_SDK_V2.lib |
+| ^ | ^ | ^ | ^ | ^ | BS_SDK_V2.dll |
+| ^ | ^ | ^ | lib | x64 | BS_SDK_V2.lib |
+| ^ | ^ | ^ | ^ | ^ | BS_SDK_V2.dll |
+| ^ | Example | C# | | | |
+| ^ | ^ | C++ | | | |
 
-  SDK    Document[^1]                         
+## Framework
 
-  \:::   Include[^2]                          
+![](biostar_2_sdk_framework_1.png)
 
-  \:::   Lib            linux    lib    x86   BS_SDK_V2.so
+## Workflow
 
-  \:::   \:::           \:::     \:::   x64   BS_SDK_V2.so
-
-  \:::   \:::           window   lib    x86   BS_SDK_V2.lib[^3]
-
-                                              BS_SDK_V2.dll
-
-  \:::   \:::           \:::     \:::   x64   BS_SDK_V2.lib[^4]
-
-                                              BS_SDK_V2.dll
-
-  \:::   Example[^5]    C#                    
-
-  ------ -------------- -------- ------ ----- --------------------
-
-## Framework ## ![biostar_2_sdk_framework_1.png](/ko/biostar_2_sdk_framework_1.png){.align-center width="600" query="?nolink&600"}
-
-Workflow ## ![workflow.png](/ko/workflow.png){.align-center width="650" query="?nolink&650"}
+![](workflow.png)
 
 ## Compatible device
 
 You can use all devices which works with the BioStar 2.
 
-Comparison with BioStar 1.x SDK
+## Comparison with BioStar 1.x SDK
 
 ### Consistency - Provides independent data structure and API
 
@@ -150,7 +142,9 @@ int result = BS2_GetDeviceInfo(context, deviceId, &deviceInfo);
 
 **BioStar 2.x SDK** is designed to allow you to call a single API from multiple threads at the same time.
 
-==== Maintenance - Flexible Development ==== **BioStar 1.x SDK** required adding or modifying the UI/logic of the application when a new type of device has been added. However, **BioStar 2.x SDK** provides each device's information in a unified structure. Therefore, modifying the existing application's UI/logic is not necessary when a new type of device is added.
+### Maintenance - Flexible Development
+
+**BioStar 1.x SDK** required adding or modifying the UI/logic of the application when a new type of device has been added. However, **BioStar 2.x SDK** provides each device's information in a unified structure. Therefore, modifying the existing application's UI/logic is not necessary when a new type of device is added.
 
 For example, even though a new device supporting face recognition has been newly released, inconvenience of modifying the application can be avoided if the UI/logic has been designed to work based on the device's properties.
 
@@ -168,50 +162,16 @@ Under construction
 
 ***C#***
 
-1.  Select the library directory from the SDK package and copy it to the project directory.
+1. Select the library directory from the SDK package and copy it to the project directory.
 
-1.  Modification of the project properties is required to use the right DLL for the platform.
+2. Modification of the project properties is required to use the right DLL for the platform.  
+    Open the project properties page and enter as below on `Pre-build event command line of the Build Events`.  
 
-    Open the project properties page and enter as below on `Pre-build event command line of the Build Events`.
+    | SDK Version | Platform | Input Information |
+    | --- | --- | --- |
+    | Before V2.8.2  | - | `copy "copy "$(ProjectDir)lib\$(PlatformTarget)\BS_SDK_V2.dll" "$(TargetDir)"`<br/>`copy "$(ProjectDir)lib\$(PlatformTarget)\libeay32.dll" "$(TargetDir)"        // OpenSSL 1.0.2n`<br/>`copy "$(ProjectDir)lib\$(PlatformTarget)\libssl32.dll" "$(TargetDir)"        // OpenSSL 1.0.2n`<br/>`copy "$(ProjectDir)lib\$(PlatformTarget)\ssleay32.dll" "$(TargetDir)"        // OpenSSL 1.0.2n` |
+    | Later V2.8.2 | x86 | `copy "$(ProjectDir)lib\$(PlatformTarget)\BS_SDK_V2.dll" "$(TargetDir)"`<br/>`copy "$(ProjectDir)lib\$(PlatformTarget)\libssl-1_1.dll" "$(TargetDir)"        // OpenSSL 1.1.1i`<br/>`copy "$(ProjectDir)lib\$(PlatformTarget)\libcrypto-1_1.dll" "$(TargetDir)"     // OpenSSL 1.1.1i` |
+    | Later V2.8.2 | x64 | `copy "$(ProjectDir)lib\$(PlatformTarget)\BS_SDK_V2.dll" "$(TargetDir)"`<br/>`copy "$(ProjectDir)lib\$(PlatformTarget)\libssl-1_1-x64.dll" "$(TargetDir)"     // OpenSSL 1.1.1i`<br/>`copy "$(ProjectDir)lib\$(PlatformTarget)\libcrypto-1_1-x64.dll" "$(TargetDir)"  // OpenSSL 1.1.1i` |
 
-    \^SDK Version \^Platform \^Input Information\^ \|Before V2.8.2 \|-\|
-
-    copy "$(ProjectDir)lib\$(PlatformTarget)\BS_SDK_V2.dll" "$(TargetDir)"
-
-    copy "$(ProjectDir)lib\$(PlatformTarget)\libeay32.dll" "$(TargetDir)"        // OpenSSL 1.0.2n
-
-    copy "$(ProjectDir)lib\$(PlatformTarget)\libssl32.dll" "$(TargetDir)"        // OpenSSL 1.0.2n
-
-    copy "$(ProjectDir)lib\$(PlatformTarget)\ssleay32.dll" "$(TargetDir)"        // OpenSSL 1.0.2n
-
-   | \| \|Later V2.8.2\|x86 \|
-
-    copy "$(ProjectDir)lib\$(PlatformTarget)\BS_SDK_V2.dll" "$(TargetDir)"
-
-    copy "$(ProjectDir)lib\$(PlatformTarget)\libssl-1_1.dll" "$(TargetDir)"      // OpenSSL 1.1.1i
-
-    copy "$(ProjectDir)lib\$(PlatformTarget)\libcrypto-1_1.dll" "$(TargetDir)"   // OpenSSL 1.1.1i
-
-   | \| \|Later V2.8.2\|x64 \|
-
-    copy "$(ProjectDir)lib\$(PlatformTarget)\BS_SDK_V2.dll" "$(TargetDir)"
-
-    copy "$(ProjectDir)lib\$(PlatformTarget)\libssl-1_1-x64.dll" "$(TargetDir)"   // OpenSSL 1.1.1i
-
-    copy "$(ProjectDir)lib\$(PlatformTarget)\libcrypto-1_1-x64.dll" "$(TargetDir)"// OpenSSL 1.1.1i
-
-   | \| 
-
-1.  Copy **SFApi.cs**, **SFEnum.cs**, **SFStruct.cs** from the SDK package example codes.
-
-    ![pre-build_event_command_line.png](/ko/pre-build_event_command_line.png){width="1000" query="?nolink&1000"}
-
-   [^1]: Document with instructions for the API provided by the SDK.
-
-   [^2]: Header files that defines the APIs and structures that are needed when developing C/C++ applications.
-
-   [^3]: Static library being imported by C/C++ projects.
-
-   [^4]: Static library being imported by C/C++ projects.
-
-   [^5]: SDK Sample codes for different languages.
+3. Copy **SFApi.cs**, **SFEnum.cs**, **SFStruct.cs** from the SDK package example codes.  
+    ![](pre-build_event_command_line.png)

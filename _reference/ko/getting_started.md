@@ -1,42 +1,32 @@
-# 시작하기
-
 ## 폴더와 파일 구성
 
 BioStar 2 Device SDK 패키지는 다음과 같은 폴더와 파일로 구성되어 있습니다.
 
-  ------ -------------- -------- ------ ----- --------------------
+| SDL | Document | | | | |
+| --- | --- | ---| --- | --- | --- |
+| ^ | Include | | | | |
+| ^ | Lib | Linux | lib | x86 | BS_SDK_V2.so |
+| ^ | ^ | ^ | ^ | x64 | BS_SDK_V2.so |
+| ^ | ^ | Windows | lib | x86 | BS_SDK_V2.lib |
+| ^ | ^ | ^ | ^ | ^ | BS_SDK_V2.dll |
+| ^ | ^ | ^ | lib | x64 | BS_SDK_V2.lib |
+| ^ | ^ | ^ | ^ | ^ | BS_SDK_V2.dll |
+| ^ | Example | C# | | | |
+| ^ | ^ | C++ | | | |
 
-  SDK    Document[^1]                         
+## 프레임워크
 
-  \:::   Include[^2]                          
+![](biostar_2_sdk_framework_1.png)
 
-  \:::   Lib            linux    lib    x86   BS_SDK_V2.so
+## 워크플로우
 
-  \:::   \:::           \:::     \:::   x64   BS_SDK_V2.so
-
-  \:::   \:::           window   lib    x86   BS_SDK_V2.lib[^3]
-
-                                              BS_SDK_V2.dll
-
-  \:::   \:::           \:::     \:::   x64   BS_SDK_V2.lib[^4]
-
-                                              BS_SDK_V2.dll
-
-  \:::   Example[^5]    C#                    
-
-  \:::   \:::           C++                   
-
-  ------ -------------- -------- ------ ----- --------------------
-
-## 프레임워크 ## ![biostar_2_sdk_framework_1.png](/ko/biostar_2_sdk_framework_1.png){.align-center width="600" query="?nolink&600"}
-
-워크플로우 ## ![workflow.png](/ko/workflow.png){.align-center width="650" query="?nolink&650"}
+![](workflow.png)
 
 ## 호환되는 장치
 
 BioStar 2와 연동되는 모든 장치를 사용할 수 있습니다.
 
-BioStar 1.x SDK와 비교
+## BioStar 1.x SDK와 비교
 
 ### 일관성 - 독립적인 데이터 구조체와 API 제공
 
@@ -146,13 +136,15 @@ int result = BS2_ConnectDeviceViaIP(context, deviceAddress, devicePort, &deviceI
 int result = BS2_GetDeviceInfo(context, deviceId, &deviceInfo);
 ```
 
-==== 고립성 - 스레드 세이프====
+### 고립성 - 스레드 세이프
 
 **BioStar 1.x SDK**는 하나의 API가 여러 스레드에서 동시에 호출되지 않도록 개발자가 직접 '락 매커니즘'을 구성해야 합니다.
 
 **BioStar 2.x SDK**는 사용 중인 API를 다른 스레드에서 동시에 호출할 수 있도록 설계되었습니다.
 
-==== 유지보수 - 유연한 개발 ==== **BioStar 1.x SDK**는 신규 장치가 추가되면 애플리케이션의 UI/로직을 추가하거나 수정해야 합니다. 하지만, **BioStar 2.x SDK**는 공통된 구조체로 각 장치의 특성 정보를 제공하므로 신규 장치가 추가되더라도 기존 애플리케이션의 UI/로직을 수정할 필요가 없습니다.
+### 유지보수 - 유연한 개발
+
+**BioStar 1.x SDK**는 신규 장치가 추가되면 애플리케이션의 UI/로직을 추가하거나 수정해야 합니다. 하지만, **BioStar 2.x SDK**는 공통된 구조체로 각 장치의 특성 정보를 제공하므로 신규 장치가 추가되더라도 기존 애플리케이션의 UI/로직을 수정할 필요가 없습니다.
 
 예를 들어, 얼굴 인증 정보를 지원하는 신규 장치가 출시되더라도 애플리케이션의 UI를 설계할 때 각 장치의 특성 정보에 따라 UI/로직이 동작하도록 설계했다면 신규 장치가 추가되어도 애플리케이션을 수정하는 번거로움을 덜 수 있습니다.
 
@@ -170,28 +162,15 @@ Under construction
 
 ***C#***
 
-1.  SDK 패키지에서 라이브러리 디렉토리를 선택하고 프로젝트 디렉토리로 복사하십시오.
+1. SDK 패키지에서 라이브러리 디렉토리를 선택하고 프로젝트 디렉토리로 복사하십시오.
 
-1.  플랫폼 대상에 맞는 올바른 DLL를 사용하기 위해 프로젝트 속성을 수정해야 합니다.
-
-    프로젝트 속성 페이지를 열고 `빌드 전 이벤트` 명령줄에 다음과 같이 입력하십시오.
-
+2. 플랫폼 대상에 맞는 올바른 DLL를 사용하기 위해 프로젝트 속성을 수정해야 합니다.  
+   프로젝트 속성 페이지를 열고 `빌드 전 이벤트` 명령줄에 다음과 같이 입력하십시오.  
    | SDK 버전 | 플랫폼 | 입력 정보 |
    | --- | --- | --- |
-   | V2.8.2 이전 | \- | \`copy "\$(ProjectDir)lib\\\$(PlatformTarget)\\BS_SDK_V2.dll" "\$(TargetDir)" copy "\$(ProjectDir)lib\\\$(PlatformTarget)\\libeay32.dll" "\$(TargetDir)" // OpenSSL 1.0.2n copy "\$(ProjectDir)lib\\\$(PlatformTarget)\\libssl32.dll" "\$(TargetDir)" // OpenSSL 1.0.2n copy "\$(ProjectDir)lib\\\$(PlatformTarget)\\ssleay32.dll" "\$(TargetDir)" // OpenSSL 1.0.2n\` |
-   | V2.8.2 이후 | x86 | \`copy "\$(ProjectDir)lib\\\$(PlatformTarget)\\BS_SDK_V2.dll" "\$(TargetDir)" copy "\$(ProjectDir)lib\\\$(PlatformTarget)\\libssl-1_1.dll" "\$(TargetDir)" // OpenSSL 1.1.1i copy "\$(ProjectDir)lib\\\$(PlatformTarget)\\libcrypto-1_1.dll" "\$(TargetDir)" // OpenSSL 1.1.1i\` |
-   | V2.8.2 이후 | x64 | \`copy "\$(ProjectDir)lib\\\$(PlatformTarget)\\BS_SDK_V2.dll" "\$(TargetDir)" copy "\$(ProjectDir)lib\\\$(PlatformTarget)\\libssl-1_1-x64.dll" "\$(TargetDir)" // OpenSSL 1.1.1i copy "\$(ProjectDir)lib\\\$(PlatformTarget)\\libcrypto-1_1-x64.dll" "\$(TargetDir)" // OpenSSL 1.1.1i\` |
+   | V2.8.2 이전 | - | `copy "copy "$(ProjectDir)lib\$(PlatformTarget)\BS_SDK_V2.dll" "$(TargetDir)"`<br/>`copy "$(ProjectDir)lib\$(PlatformTarget)\libeay32.dll" "$(TargetDir)"        // OpenSSL 1.0.2n`<br/>`copy "$(ProjectDir)lib\$(PlatformTarget)\libssl32.dll" "$(TargetDir)"        // OpenSSL 1.0.2n`<br/>`copy "$(ProjectDir)lib\$(PlatformTarget)\ssleay32.dll" "$(TargetDir)"        // OpenSSL 1.0.2n` |
+   | V2.8.2 이후 | x86 | `copy "$(ProjectDir)lib\$(PlatformTarget)\BS_SDK_V2.dll" "$(TargetDir)"`<br/>`copy "$(ProjectDir)lib\$(PlatformTarget)\libssl-1_1.dll" "$(TargetDir)"        // OpenSSL 1.1.1i`<br/>`copy "$(ProjectDir)lib\$(PlatformTarget)\libcrypto-1_1.dll" "$(TargetDir)"     // OpenSSL 1.1.1i` |
+   | V2.8.2 이후 | x64 | `copy "$(ProjectDir)lib\$(PlatformTarget)\BS_SDK_V2.dll" "$(TargetDir)"`<br/>`copy "$(ProjectDir)lib\$(PlatformTarget)\libssl-1_1-x64.dll" "$(TargetDir)"     // OpenSSL 1.1.1i`<br/>`copy "$(ProjectDir)lib\$(PlatformTarget)\libcrypto-1_1-x64.dll" "$(TargetDir)"  // OpenSSL 1.1.1i` |
 
-1.  SDK 패키지의 예제 코드에서 **SFApi.cs**, **SFEnum.cs**, **SFStruct.cs**를 복사하십시오.
-
-    ![pre-build_event_command_line.png](/ko/pre-build_event_command_line.png){width="1000" query="?nolink&1000"}
-
-   [^1]: SDK에서 제공하는 API의 사용법을 기술한 문서 파일이 존재합니다.
-
-   [^2]: API 및 구조체를 정의한 헤더 파일들이 있으며, C/C++ 애플리케이션 개발 시 필요합니다.
-
-   [^3]: C/C++ 프로젝트에서 import할 정적 라이브러리입니다.
-
-   [^4]: C/C++ 프로젝트에서 import할 정적 라이브러리입니다.
-
-   [^5]: 다양한 언어별로 SDK 샘플 코드가 존재합니다.
+3. SDK 패키지의 예제 코드에서 **SFApi.cs**, **SFEnum.cs**, **SFStruct.cs**를 복사하십시오.  
+    ![](pre-build_event_command_line.png)
