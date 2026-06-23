@@ -603,3 +603,64 @@ typedef struct {
   * BS2_GetLogSmallBlobExFromDirWithKey: [+2.8.2] Gets certain amount of logs including temperature information based on the event mask from USB exported data in an efficient way.
   * BS2_GetUserInfosFaceExFromDirWithKey: [+2.8.2] Gets the user information of the given user ID from USB exported data.
   * BS2_GetUserDatasFaceExFromDirWithKey: [+2.8.2] Gets the user information of the given user ID & usermask from USB exported data.
+
+
+## HTML 출력 폴더 구조
+
+```text
+output/
+├── index.html       ← 영어 (루트)
+├── group__...html
+└── ko/              ← 한국어 서브디렉토리
+    └── index.html
+```
+
+### Doxyfile 출력 경로 설정
+
+```ini
+# 영어 Doxyfile (biostar_device_sdk_en)
+OUTPUT_DIRECTORY = .
+HTML_OUTPUT      = output
+
+# 한국어 Doxyfile (biostar_device_sdk_ko)
+OUTPUT_DIRECTORY = output
+HTML_OUTPUT      = ko
+```
+
+### 언어 전환 버튼 (JavaScript)
+
+`docs/lang_switch.js` 파일을 만들고 두 Doxyfile에 모두 등록:
+
+```javascript
+(function () {
+    var path = window.location.pathname;
+    var isKorean = path.indexOf('/ko/') !== -1;
+
+    var targetPath, label;
+    if (isKorean) {
+        // 한국어 → 영어: /ko/ 제거
+        targetPath = path.replace('/ko/', '/');
+        label = 'English';
+    } else {
+        // 영어 → 한국어: 파일명 앞에 /ko 삽입
+        var lastSlash = path.lastIndexOf('/');
+        targetPath = path.substring(0, lastSlash) + '/ko' + path.substring(lastSlash);
+        label = '한국어';
+    }
+
+    var btn = document.createElement('a');
+    btn.href = targetPath;
+    btn.textContent = label;
+    btn.style.cssText = 'position:fixed;top:10px;right:10px;padding:4px 10px;'
+                      + 'background:#0a73bf;color:#fff;border-radius:4px;'
+                      + 'font-size:13px;text-decoration:none;z-index:9999;';
+    document.body.appendChild(btn);
+})();
+```
+
+두 Doxyfile에 추가:
+
+```ini
+HTML_EXTRA_FILES       = docs/lang_switch.js
+HTML_EXTRA_JAVASCRIPT  = lang_switch.js
+```

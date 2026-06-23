@@ -1,4 +1,4 @@
-# Doxyfile 1.17.0
+﻿# Doxyfile 1.17.0
 
 # This file describes the settings to be used by the documentation system
 # Doxygen (www.doxygen.org) for a project.
@@ -77,7 +77,7 @@ PROJECT_ICON           =
 # entered, it will be relative to the location where Doxygen was started. If
 # left blank the current directory will be used.
 
-OUTPUT_DIRECTORY       = output/en
+OUTPUT_DIRECTORY       = .
 
 # If the CREATE_SUBDIRS tag is set to YES then Doxygen will create up to 4096
 # sub-directories (in 2 levels) under the output directory of each output format
@@ -1426,7 +1426,7 @@ GENERATE_HTML          = YES
 # The default directory is: html.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
-HTML_OUTPUT            = html
+HTML_OUTPUT            = output
 
 # The HTML_FILE_EXTENSION tag can be used to specify the file extension for each
 # generated HTML page (for example: .htm, .php, .asp).
@@ -1453,8 +1453,7 @@ HTML_FILE_EXTENSION    = .html
 # of the possible markers and block names see the documentation.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
-HTML_HEADER = \
-xpacks/@micro-os-plus/build-helper/doxygen/common-header-micro-os-plus.html
+HTML_HEADER            = assets/header.html
 
 # The HTML_FOOTER tag can be used to specify a user-defined HTML footer for each
 # generated HTML page. If the tag is left blank Doxygen will generate a standard
@@ -1476,10 +1475,11 @@ HTML_FOOTER            =
 # obsolete.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
-HTML_EXTRA_STYLESHEET = \
+HTML_EXTRA_STYLESHEET  = \
 xpacks/@jothepro/doxygen-awesome-css/doxygen-awesome.css \
-xpacks/@micro-os-plus/build-helper/doxygen/common-custom.css \
-xpacks/@micro-os-plus/build-helper/doxygen/cards.css \
+xpacks/@jothepro/doxygen-awesome-css/doxygen-awesome-sidebar-only.css \
+assets/custom.css \
+assets/cards.css \
 
 # The HTML_EXTRA_STYLESHEET tag can be used to specify additional user-defined
 # cascading style sheets that are included after the standard style sheets
@@ -1507,12 +1507,13 @@ xpacks/@micro-os-plus/build-helper/doxygen/cards.css \
 # files will be copied as-is; there are no commands or markers available.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
-HTML_EXTRA_FILES = \
+HTML_EXTRA_FILES       = \
 xpacks/@jothepro/doxygen-awesome-css/doxygen-awesome-darkmode-toggle.js \
 xpacks/@jothepro/doxygen-awesome-css/doxygen-awesome-fragment-copy-button.js \
 xpacks/@jothepro/doxygen-awesome-css/doxygen-awesome-paragraph-link.js \
 xpacks/@jothepro/doxygen-awesome-css/doxygen-awesome-interactive-toc.js \
-xpacks/@jothepro/doxygen-awesome-css/doxygen-awesome-tabs.js \
+xpacks/@jothepro/doxygen-awesome-css/doxygen-awesome-tabs.js
+
 
 # The HTML_COLORSTYLE tag can be used to specify if the generated HTML output
 # should be rendered with a dark or light theme.
@@ -1525,7 +1526,7 @@ xpacks/@jothepro/doxygen-awesome-css/doxygen-awesome-tabs.js \
 # The default value is: AUTO_LIGHT.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
-HTML_COLORSTYLE        = AUTO_LIGHT
+HTML_COLORSTYLE        = LIGHT
 
 # The HTML_COLORSTYLE_HUE tag controls the color of the HTML output. Doxygen
 # will adjust the colors in the style sheet and background images according to
@@ -1897,7 +1898,7 @@ SHOW_ENUM_VALUES       = NO
 # Minimum value: 0, maximum value: 1500, default value: 250.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
-TREEVIEW_WIDTH         = 250
+TREEVIEW_WIDTH         = 370
 
 # If the EXT_LINKS_IN_WINDOW option is set to YES, Doxygen will open links to
 # external symbols imported via tag files in a separate window.
@@ -3103,3 +3104,5 @@ MSCGEN_TOOL            =
 # command).
 
 MSCFILE_DIRS           =
+
+

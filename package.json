@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "description": "website",
   "main": "",
-  "scripts": {},
+  "scripts": {
+    "build": "node build_docs.js"
+  },
   "author": {
     "name": "Suprema TW",
     "email": "TW@suprema.co.kr",

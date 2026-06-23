@@ -1,0 +1,167 @@
+<!-- HTML header for doxygen 1.9.7-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="$langISO">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen $doxygenversion"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!--BEGIN PROJECT_NAME--><title>$projectname: $title</title><!--END PROJECT_NAME-->
+<!--BEGIN !PROJECT_NAME--><title>$title</title><!--END !PROJECT_NAME-->
+<link href="$relpath^tabs.css" rel="stylesheet" type="text/css"/>
+<!--BEGIN DISABLE_INDEX-->
+  <!--BEGIN FULL_SIDEBAR-->
+<script type="text/javascript">var page_layout=1;</script>
+  <!--END FULL_SIDEBAR-->
+<!--END DISABLE_INDEX-->
+<script type="text/javascript" src="$relpath^jquery.js"></script>
+<script type="text/javascript" src="$relpath^dynsections.js"></script>
+$treeview
+$search
+$mathjax
+$darkmode
+<link href="$relpath^$stylesheet" rel="stylesheet" type="text/css" />
+$extrastylesheet
+
+<script type="text/javascript" src="$relpath^doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="$relpath^doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="$relpath^doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="$relpath^doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="$relpath^doxygen-awesome-tabs.js"></script>
+
+<script type="text/javascript">
+DoxygenAwesomeFragmentCopyButton.init()
+DoxygenAwesomeParagraphLink.init()
+DoxygenAwesomeInteractiveToc.init()
+DoxygenAwesomeTabs.init()
+</script>
+
+</head>
+<body>
+<!--BEGIN DISABLE_INDEX-->
+  <!--BEGIN FULL_SIDEBAR-->
+<div id="side-nav" class="ui-resizable side-nav-resizable"><!-- do not remove this div, it is closed by doxygen! -->
+  <!--END FULL_SIDEBAR-->
+<!--END DISABLE_INDEX-->
+
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+
+<!--BEGIN TITLEAREA-->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <!--BEGIN PROJECT_LOGO-->
+  <td id="projectlogo"><img alt="Logo" src="$relpath^$projectlogo"/></td>
+  <!--END PROJECT_LOGO-->
+  <!--BEGIN PROJECT_NAME-->
+  <td id="projectalign">
+   <div id="projectname">$projectname<!--BEGIN PROJECT_NUMBER--><span id="projectnumber">&#160;$projectnumber</span><!--END PROJECT_NUMBER-->
+   </div>
+   <!--BEGIN PROJECT_BRIEF--><div id="projectbrief">$projectbrief</div><!--END PROJECT_BRIEF-->
+  </td>
+  <!--END PROJECT_NAME-->
+  <!--BEGIN !PROJECT_NAME-->
+   <!--BEGIN PROJECT_BRIEF-->
+    <td>
+    <div id="projectbrief">$projectbrief</div>
+    </td>
+   <!--END PROJECT_BRIEF-->
+  <!--END !PROJECT_NAME-->
+  <!--BEGIN DISABLE_INDEX-->
+   <!--BEGIN SEARCHENGINE-->
+     <!--BEGIN !FULL_SIDEBAR-->
+    <td>$searchbox</td>
+     <!--END !FULL_SIDEBAR-->
+   <!--END SEARCHENGINE-->
+  <!--END DISABLE_INDEX-->
+  <td id="dark-mode-cell" style="padding:0 4px;vertical-align:middle;"><doxygen-awesome-dark-mode-toggle title="Toggle Light/Dark Mode"></doxygen-awesome-dark-mode-toggle></td>
+  <td id="lang-switch-cell"><a id="lang-switch" href="#">KO</a></td>
+ </tr>
+  <!--BEGIN SEARCHENGINE-->
+   <!--BEGIN FULL_SIDEBAR-->
+   <tr><td colspan="2">$searchbox</td></tr>
+   <!--END FULL_SIDEBAR-->
+  <!--END SEARCHENGINE-->
+ </tbody>
+</table>
+</div>
+<!--END TITLEAREA-->
+<script type="text/javascript">
+(function(){
+  // Dark mode toggle icon 초기화
+  var toggle = document.querySelector('doxygen-awesome-dark-mode-toggle');
+  if (toggle) {
+    toggle.updateIcon();
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function() {
+      toggle.updateIcon();
+    });
+    document.addEventListener('visibilitychange', function() {
+      if (document.visibilityState === 'visible') { toggle.updateIcon(); }
+    });
+  }
+
+  // 사이드바 항목 클릭 시 하위 카테고리 자동 확장
+  document.addEventListener('DOMContentLoaded', function() {
+    // Part 1: 이전 페이지에서 확장 요청이 저장된 경우, 이동 후 해당 항목을 확장
+    var pendingClass = sessionStorage.getItem('navExpand');
+    if (pendingClass) {
+      sessionStorage.removeItem('navExpand');
+      var done = false;
+      var escaped = CSS.escape ? CSS.escape(pendingClass) : pendingClass.replace(/\./g, '\\.').replace(/\//g, '\\/');
+
+      function tryExpand() {
+        if (done) return;
+        var link = document.querySelector('#nav-tree-contents .label a.' + escaped);
+        if (!link) return;
+        var item = link.closest('div.item');
+        if (!item) return;
+        if (item.querySelector('span.arrowhead.closed')) {
+          var arrow = item.querySelector('a[href="javascript:void(0)"]');
+          if (arrow) { arrow.click(); done = true; }
+        } else {
+          done = true; // 이미 열려있음
+        }
+      }
+
+      var container = document.getElementById('nav-tree-contents');
+      if (container) {
+        tryExpand();
+        if (!done) {
+          var obs = new MutationObserver(function() { tryExpand(); if (done) obs.disconnect(); });
+          obs.observe(container, { childList: true, subtree: true });
+          setTimeout(function() { obs.disconnect(); }, 3000);
+        }
+      }
+    }
+
+    // Part 2: 하위 항목이 있는(closed) 항목 클릭 시 확장 요청을 sessionStorage에 저장
+    var navTree = document.getElementById('nav-tree');
+    if (!navTree) return;
+    navTree.addEventListener('click', function(e) {
+      var labelLink = e.target.closest('.label a');
+      if (!labelLink) return;
+      var item = labelLink.closest('div.item');
+      if (!item) return;
+      if (item.querySelector('span.arrowhead.closed')) {
+        // labelLink의 class 속성이 navtree 내 고유 식별자 역할 (예: "topics.html")
+        sessionStorage.setItem('navExpand', labelLink.className.trim());
+      }
+    });
+  });
+
+  // 언어 전환 버튼
+  var a = document.getElementById('lang-switch');
+  if (!a) return;
+  var p = window.location.pathname;
+  if (p.indexOf('/ko/') !== -1) {
+    a.textContent = 'EN';
+    a.href = p.replace('/ko/', '/');
+  } else {
+    a.textContent = 'KO';
+    var i = p.lastIndexOf('/');
+    a.href = p.substring(0, i) + '/ko' + p.substring(i);
+  }
+})();
+</script>
+<!-- end header part -->

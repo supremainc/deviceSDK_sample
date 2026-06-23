@@ -1,4 +1,4 @@
-﻿# Release Notes
+# Release Notes
 
 # Version 2.9.12 (v2.9.12.0)
 
@@ -108,6 +108,7 @@
 
 1. Improved internal logic for SDK code stability.
 
+
 ---
 
 # Version 2.9.9 (v2.9.9.0)
@@ -153,6 +154,7 @@
 ==== Modified Features ==== \1. Fixes were made to stabilize the code internally in the SDK.
 
 1. Improved Card ID handling for SCC smart cards in the card sample source.
+
 
 ---
 
@@ -229,6 +231,7 @@
 - Improved memory release for imagedata in the UserControl example.
 
 - Improved the conversion method for wiegandDeviceID in the SlaveControl example.
+
 
 ---
 
@@ -312,6 +315,7 @@
 
 1. Fixes were made to stabilize the code internally in the SDK.
 
+
 ---
 
 # Version 2.9.4 (V2.9.4.0)
@@ -352,6 +356,7 @@
    | Later V2.9.4 | Ubuntu 22.04 |
 
 1. Fixes were made to stabilize the code internally in the SDK.
+
 
 ---
 
@@ -464,6 +469,7 @@ Increasing the number of retries is a way to resolve temporary errors, but care 
 1. This is a problem that occurs `only in version 2.8.3.2`, and a problem that can lead to abnormal termination during user registration while taking a log dump inside the SDK has been fixed.
 
 1. Fixes were made to stabilize the code internally in the SDK.
+
 
 ---
 
@@ -580,6 +586,7 @@ Increasing the number of retries is a way to resolve temporary errors, but care 
 1. Fixed the bug that crashed if the access group existed during a USB import.
 
 1. Edited to stabilize code internally in SDK.
+
 
 ---
 
@@ -727,6 +734,7 @@ Increasing the number of retries is a way to resolve temporary errors, but care 
 
 1. Fix the problem that the device connection is disconnected in case of a simple communication error in SSL connection mode.
 
+
 ---
 
 # Version 2.8.2 (V2.8.2.3)
@@ -771,6 +779,7 @@ Increasing the number of retries is a way to resolve temporary errors, but care 
 - Refer to structure [BS2DisplayConfig](configuration_api#bs2displayconfig)
 
 1. There were fixes for stabilizing the code inside the SDK.
+
 
 ---
 
@@ -821,6 +830,7 @@ Increasing the number of retries is a way to resolve temporary errors, but care 
 1. C# examples provided to guide through server-matching function implementation will not be supported anymore.
 
 - Refer to the Server API Document [server_api](server_api)
+
 
 ---
 
@@ -963,6 +973,7 @@ Increasing the number of retries is a way to resolve temporary errors, but care 
 
 - Refer to structure [BS2FaceConfig](configuration_api#bs2faceconfig) lightCondition
 
+
 ---
 
 # Version 2.7.2 (V2.7.2.12)
@@ -1009,6 +1020,7 @@ Increasing the number of retries is a way to resolve temporary errors, but care 
 
 - Refer to API [BS2_ResetConfigExceptNetInfo](bs2_resetconfigexceptnetinfo)
 
+
 ---
 
 # Version 2.7.2 (V2.7.2.4)
@@ -1050,6 +1062,7 @@ Increasing the number of retries is a way to resolve temporary errors, but care 
 - Refer to API [BS2_SetDeviceEventListener](bs2_setdeviceeventlistener)
 
 1. There were fixes for stabilizing the code inside the SDK.
+
 
 ---
 
@@ -1179,6 +1192,7 @@ Increasing the number of retries is a way to resolve temporary errors, but care 
 
 1. For security reasons, support for the function BS2_GetDataEncryptKey has been deprecated.
 
+
 ---
 
 # Version 2.7.0 (V2.7.0.0)
@@ -1273,6 +1287,7 @@ Increasing the number of retries is a way to resolve temporary errors, but care 
 
 - Refer to API [BS2_GetImageLog](bs2_getimagelog)
 
+
 ---
 
 # Version 2.6.4 (V2.6.4.1)
@@ -1358,6 +1373,7 @@ Increasing the number of retries is a way to resolve temporary errors, but care 
 1. Fixed the issue that SDK doesn't recognize device disconnection when the device is constantly disconnected.
 
 1. Fixed the issue of Linux SDK crash.
+
 
 ---
 
@@ -1445,6 +1461,7 @@ Increasing the number of retries is a way to resolve temporary errors, but care 
 
 1. Fixed the issue of Linux SDK crash.
 
+
 ---
 
 # Version 2.6.3 (V2.6.3.16)
@@ -1495,6 +1512,7 @@ Increasing the number of retries is a way to resolve temporary errors, but care 
 
 1.Fixed a problem where the connection would be terminated normally if the device was disconnected and the packet was exchanged in the SDK without closing the connection yet.
 
+
 ---
 
 # Version 2.6.3 (V2.6.3.12)
@@ -1511,6 +1529,7 @@ Increasing the number of retries is a way to resolve temporary errors, but care 
 
 - Newly added DEBUG_LOG_OPERATION_ALL(0xFF), the level used in [BS2_SetDebugExCallback](bs2_setdebugexcallback) and [BS2_SetDebugFileLog](bs2_setdebugfilelog).
 
+
 ---
 
 # Version 2.6.3 (V2.6.3.11)
@@ -1522,6 +1541,7 @@ Increasing the number of retries is a way to resolve temporary errors, but care 
 ## New Features
 
 - Fixes a problem where firmware upgrade might fail in SSL connection mode
+
 
 ---
 
@@ -1540,6 +1560,7 @@ Increasing the number of retries is a way to resolve temporary errors, but care 
 - The issue with the process taking a long time such as a large number of users enroll or FW upgrade etc.
 
 - Code modified to avoid SDK crash possibilities
+
 
 ---
 
@@ -1840,6 +1861,7 @@ If you want to use the new API with the new structure, please move the operator 
 
 - Refer to structure [BS2SystemConfig](configuration_api#bs2systemconfig)
 
+
 ---
 
 # Version 2.6.2
@@ -1853,6 +1875,7 @@ If you want to use the new API with the new structure, please move the operator 
 1. Fixed problem that cannot get RS485 and Input configuration from CoreStation.
 
 1. Fixed a problem where BioEntry R2 device is not supported on CoreStation.
+
 
 ---
 
@@ -1891,6 +1914,7 @@ The sample files contain the OpenSSL 1.0.2n Windows library file.
 1. SSL certificates used from the C# example program has been updated.
 
 1. Old FW files included in the C# example program has been deleted.
+
 
 ---
 
@@ -2180,6 +2204,7 @@ The sample files contain the OpenSSL 1.0.2n Windows library file.
 
 * Refer to structure [BS2SimpleDeviceInfo](device_api#bs2simpledeviceinfo)
 
+
 ---
 
 # Version 2.5.0
@@ -2293,6 +2318,7 @@ int BS2_ScanFingerprintEx(void* context, uint32_t deviceId, BS2Fingerprint* fing
 1. BS2CardModelEnum{ODPW, OAPW} has been added in C# example.
 
 1. Transformation function UTC contents in regards to Util common UnixTimeStamp has been modified in C# example.
+
 
 ---
 
@@ -2425,6 +2451,7 @@ int BS2_ScanFingerprint(void* context, uint32_t deviceId, BS2Fingerprint* finger
 
 1. The BioEntry Plus and BioEntry W did had the capability of using the multiple wiegand feature, but was ruled out in the SDK. Now these devices can operate using the multiple wiegand feature.
 
+
 ---
 
 # Version 2.3.1.b
@@ -2442,6 +2469,7 @@ Bugs Fixed \1. The SDK had issues managing over 64 devices. Now the SDK is feasi
    | BS2_APB_ZONE_READER_EXIT | 2 | 1 |
 
 1. API \<text type="success"\>**BS2_ReadImageLog**\</text\> was not able to process images over 16kB. Now, the SDK can receive image logs having size larger than 16kB.
+
 
 ---
 
@@ -2554,6 +2582,7 @@ int BS2_ScanFingerprint(void* context, uint32_t deviceId, BS2Fingerprint* finger
 
    The \<text type="success"\>**alarmFlags**\</text\> is not used in the [BS2Door](Door_Control_API#bs2door) structure as now the \<text type="success"\>**alarmFlags**\</text\> can be displayed from the [BS2DoorStatus](Door_Control_API#bs2doorstatus) structure. Instead, the \<text type="success"\>**unconditionalLock**\</text\> field has been added for the new feature and is using the memory of the \<text type="success"\>**alarmFlags**\</text\>. The \<text type="success"\>**unconditionalLock**\</text\> field has been added to control automatic slide doors. When using a traditional dead-bolt lock, the lock shouldn't be locked after the configured time has passed unless the door is closed. However, when using an automatic slide door, there are needs for the door to be closed even when there is still an input on the door sensor. You can change this field to true to close the door regardless to the door sensor input.
 
+
 ---
 
 # Version 2.2
@@ -2594,6 +2623,7 @@ New Features
 
 - Anti Passback zone, Timed Anti Passback zone, Fire Alarm zone, Scheduled lock/unlock zone
 
+
 ---
 
 # Version 2.1
@@ -2605,6 +2635,7 @@ New Features
 - Supports Real-time log
 
 - Wiegand I/O setting
+
 
 ---
 
@@ -2632,5 +2663,5 @@ New Features
 
 - Can cancel the process when importing the user list or entire log
 
----
 
+---
